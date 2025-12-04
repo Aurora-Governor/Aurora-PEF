@@ -14,7 +14,7 @@ This repo provides:
 
 - The **Aurora + PEF whitepaper (v1.0)** with empirical evidence of transformer failure modes  
 - A reference **Python implementation sketch** of the core primitives and interpreter  
-- A small **demo** showing how Aurora preserves and resolves ambiguity where LLMs collapse it  
+- A small **demo** showing how Aurora preserves and resolves ambiguity  
 - An example **“sandwich” pipeline**:  
   **Aurora Interpretation → LLM Expression → Aurora Verification**
 
@@ -42,3 +42,59 @@ python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 python -m src.demo.cli_demo
+```
+The demo will:
+
+    Load a small set of ambiguous sentences (e.g. “Emma told Lucy that her sister was arriving.”)
+
+    Build multiple interpretations in Aurora
+
+    Show which interpretations survive constraint pruning
+
+    Optionally compare this to a baseline LLM response
+
+Architecture Overview
+
+For a full explanation, see the whitepaper in whitepaper/.
+PEF (src/aurora/pef.py)
+
+Provides a persistent conceptual substrate where entities exist outside of any single sentence.
+Primitives (src/aurora/primitives.py)
+
+Implements the core operators (e.g. BRANCH, HOLD, PRUNE, BIND, TRACE, ANCHOR, LIFT, etc.)
+as functions or small classes over conceptual kernels.
+Interpreter (src/aurora/interpreter.py)
+
+Converts structured input (a parsed sentence with roles/domains/spans) into parallel interpretations,
+using primitives to maintain ambiguity.
+Verifier (src/aurora/verifier.py)
+
+Applies constraints to prune impossible interpretations and produce reasoning traces.
+Integrations (src/integrations/)
+
+Demonstrates the “sandwich” pattern:
+
+    Aurora Interpretation
+
+    LLM Expression
+
+    Aurora Verification
+
+Status
+
+This repo is a reference and demonstration implementation, not a production system.
+
+It is intended to:
+
+    Make the architecture concrete for researchers and engineers
+
+    Provide a testbed for ambiguity and reasoning experiments
+
+    Serve as the basis for deeper collaborations and licensing
+
+Licensing & Contact
+
+    NOTE: Licensing terms are still being finalised and may differ from open-source defaults.
+
+Name: Margaret Stokes
+Email: megstokesart@gmail.com
