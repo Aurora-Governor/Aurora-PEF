@@ -35,7 +35,7 @@ PEF stabilises the world in which meaning exists.
 
 ---
 ➡️ **Executive Summary:** [docs/Executive-Summary.md](docs/Executive-Summary.md)
-
+➡️ **Research Abstract:** [docs/Research-Abstract.md](docs/Research-Abstract.md)
 
 ## Repository Contents
 
