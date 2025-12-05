@@ -34,6 +34,8 @@ Aurora governs meaning.
 PEF stabilises the world in which meaning exists.
 
 ---
+➡️ **Executive Summary:** [docs/Executive-Summary.md](docs/Executive-Summary.md)
+
 
 ## Repository Contents
 
