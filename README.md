@@ -1,141 +1,155 @@
 # Aurora + PEF Reasoning Framework  
-### *A non-temporal substrate for explicit compositional reasoning*
+### A non-temporal substrate for explicit compositional reasoning
 
 **Status:** Research Architecture — Conceptual Specification + Empirical Evidence  
 **Purpose:** Provide the structured reasoning substrate that current transformer models lack.
 
 ---
 
-## Overview
+## 📘 Overview
 
-Aurora + PEF is a meaning-first reasoning architecture developed to address a class of **structural limitations** consistently observed across transformer systems (Grok, GPT-4, Gemini, Claude).
+Aurora + PEF is a meaning-first reasoning architecture developed to address structural limitations consistently observed across transformer models (Grok, GPT-4, Gemini, Claude).
 
-These limitations include:
+Transformers predict fluently, but they do **not** maintain:
+
+- persistent conceptual structure  
+- stable identity across spans  
+- parallel interpretations  
+- operator-level reasoning  
+- constraint-driven coherence  
+
+Across models, the same failures recur:
 
 - irreversible interpretive collapse  
 - invented grammatical or causal rules  
 - premise mutation and world-state drift  
-- loss of persistent conceptual identity  
-- contradictory reasoning heuristics  
-- inability to maintain multiple valid interpretations  
+- contradictory heuristics  
+- inability to sustain multiple valid interpretations  
 
-These behaviours do **not** arise from training gaps.  
-They are consequences of the architectural constraints of **sequence-based attention models**.
+These are not training errors.  
+They are **architectural consequences** of sequence-based attention systems.
 
 Aurora + PEF takes a different approach:
 
-- **Aurora** provides explicit compositional reasoning using structured conceptual units (Roles → Domains → Spans) and formal operators (WE, THEN, WHILE, UNTIL, BECAUSE).  
-- **PEF** (Persistent Existence Frame) provides a **non-temporal substrate** where conceptual states persist without positional or sequential encoding.  
-- **Transformers** operate only as **expression layers** for linguistic realization.  
-- **Aurora Verification** performs constraint-level auditing for coherence and collapse conditions.
+- **Aurora** provides explicit conceptual structure (Roles → Domains → Spans) and formal operators (WE, THEN, WHILE, UNTIL, BECAUSE).  
+- **PEF** (Persistent Existence Frame) supplies a **non-temporal substrate** where conceptual states persist without positional encoding.  
+- **Transformers** become expression-only layers.  
+- **Aurora Verification** enforces constraints, collapse conditions, and coherence.  
 
-Ambiguity is **not** the “problem” being solved.  
-It is the **diagnostic case** that reveals the underlying architectural deficiency in transformer reasoning.
+Ambiguity is not the “problem.”  
+It is the **diagnostic surface** exposing the deeper absence of structured reasoning.
 
 ---
 
-## Repository Contents
+# 📄 Core Documents
 
-### 1. Core Papers
+### **Executive Summary**  
+A concise overview of the architecture and motivation.  
+👉 [Executive-Summary.md](docs/Executive-Summary.md)
 
-- **Executive Summary**  
-- **Research Abstract**  
-- **Full Architecture Paper (v1.1, 76 pages)**  
-  Includes:  
-  - empirical ambiguity tests  
-  - structural diagnosis of transformer failure modes  
-  - Aurora’s operator system  
-  - PEF specification  
-  - integration pathways  
-  - conceptual diagrams  
-  - appendices A–D
+### **Research Abstract**  
+High-level motivation, problem framing, and architectural contribution.  
+👉 [Research-Abstract.md](docs/Research-Abstract.md)
 
-### 2. Empirical Evidence
+### **Whitepaper (v1.1)** — *76 pages*  
+Full conceptual specification of Aurora + PEF, including:
 
-Reproducible tests demonstrating structural cross-model failure:
+- empirical ambiguity-resolution tests  
+- structural diagnosis of transformer failure modes  
+- operator system and topology  
+- PEF substrate specification  
+- integration pathways for hybrid Aurora–LLM systems  
+- appendices A–D (formal structures)
 
-- premature collapse when context supports multiple interpretations  
-- contradictory heuristics across identical inputs  
-- invented explanation rules  
-- inability to sustain parallel interpretations  
-- instability of conceptual identity  
+👉 **[Download Whitepaper v1.1 (PDF)](Whitepaper/Aurora%20PEF%20Final%20with%20Appendices%20v1.1.pdf)**
 
-These tests expose a deeper absence of:
+---
 
-- persistent roles  
-- stable conceptual spans  
-- operator-level compositionality  
-- non-temporal state coherence  
-- constraint-bound reasoning behaviour  
+# 🧩 Conceptual Components
 
-### 3. Prototype Reasoning Unit
+### **Aurora Primitive Operators**  
+Canonical operator list used for structural reasoning.  
+👉 [primitives.md](docs/primitives.md)
 
-This repository includes a **minimal Aurora interpretation prototype** that demonstrates:
+### **Persistent Existence Frame (PEF) Specification**  
+Defines Aurora’s non-temporal identity substrate and continuity model.  
+👉 [pef.md](docs/pef.md)
+
+---
+
+# 🧪 Prototype Reasoning Unit
+
+A minimal Aurora-style interpretation engine is provided for demonstration:
 
 - parallel interpretation maintenance  
-- context-governed resolution  
-- explicit collapse conditions  
-- transparent reasoning traces  
+- context-governed collapse  
+- explicit constraint evaluation  
+- transparent JSON traces
 
-**Note:** This is *not* a production implementation of Aurora or PEF.  
-It is a conceptual demonstration of **substrate behaviour in isolation**.
+### **Demo files:**  
+- `src/demo/aurora_ambiguity_demo.py`  
+- `src/demo/README.md`
+
+### **Run the demo:**
+
+```bash
+python src/demo/aurora_ambiguity_demo.py
+```
+Output is written to results.json (archived under src/demo/archive/).
+
+This is not a production Aurora engine — it is a conceptual substrate demonstration.
+
+#Conceptual Architecture (High-Level)
+
+User Input
+    ↓
+Aurora Interpretation Layer
+(Roles → Domains → Spans, explicit primitives)
+    ↓
+Transformer Expression Layer
+(surface language generation)
+    ↓
+Aurora Verification Layer
+(constraint enforcement, collapse rules)
+    ↓
+Final Structured Meaning
+
+Aurora supplies the reasoning physics.  
+Transformers supply the linguistic surface.  
+PEF supplies the field in which meaning persists.
 
 ---
 
-## Conceptual Architecture (High-Level)
+## ⭐ Why This Matters
 
-User Input  
-    ↓  
-Aurora Interpretation Layer  
-    (Roles → Domains → Spans, explicit primitives)  
-    ↓  
-Transformer Expression Layer  
-    (surface language generation)  
-    ↓  
-Aurora Verification Layer  
-    (constraint enforcement, collapse rules)  
-    ↓  
-Final Structured Meaning  
+Transformers **approximate** language.  
+Aurora + PEF **construct** meaning.
 
-Aurora supplies the **reasoning physics**.  
-Transformers supply the **linguistic surface**.  
-PEF supplies the **field in which meaning persists**.
+The architecture provides:
 
----
-
-## Why This Matters
-
-Transformers do not maintain conceptual structure.  
-They do not possess explicit operators.  
-They do not preserve ambiguity.  
-They do not reason.
-
-They approximate.
-
-Aurora + PEF introduces:
-
-- explicit, interpretable reasoning operations  
+- explicit, interpretable reasoning  
 - persistent conceptual identity  
-- non-temporal substrate stability  
-- constraint-governed interpretation  
+- non-temporal state cohesion  
+- operator-level compositionality  
 - deterministic, inspectable reasoning traces  
 
-A substrate capable of reasoning independently or serving as a **hybrid control layer** around transformer systems.
+Aurora may operate independently or as a **hybrid control layer** around transformer models.
 
 ---
 
-## IP Notice
+## 🔐 IP Notice
 
-Aurora + PEF is protected by the following Australian provisional patents:
+Aurora + PEF is protected under Australian provisional patents:
 
-- **2025905835** — Compositional Primitives Architecture  
-- **2025905860** — Persistent Existence Frame (PEF)  
-- **2025905885** — Integrated Aurora + PEF Reasoning System  
+- **2025905835 — Compositional Primitives Architecture**  
+- **2025905860 — Persistent Existence Frame (PEF)**  
+- **2025905885 — Integrated Aurora + PEF Reasoning System**  
 
 ---
 
-## Contact
+## 📫 Contact
 
-For research dialogue or collaboration inquiries:  
+For research correspondence:  
 **Margaret Stokes**  
-(See email information in the included papers)
+*(Email provided in the included papers)*  
+
