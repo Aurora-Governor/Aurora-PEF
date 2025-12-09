@@ -1,8 +1,20 @@
+## 🚀 Start Here
+
+If you are new to Aurora + PEF, begin with:
+
+1. [Aurora Architecture Overview](docs/Aurora-Architecture-Overview.md)
+2. [Executive Summary](Whitepaper/Executive-Summary.md)
+3. [Primitives](docs/primitives.md)
+4. [Ambiguity Demonstrator](src/demo/)
+
+These documents provide the conceptual foundation of the architecture.
+
+---
+
 # Aurora + PEF Reasoning Framework  
 ### A non-temporal substrate for explicit compositional reasoning
 
-**Status:** Research Architecture — Conceptual Specification + Empirical Evidence  
-**Purpose:** Provide the structured reasoning substrate that current transformer models lack.
+Aurora + PEF is a structured reasoning architecture that preserves ambiguity, maintains conceptual identity, and applies explicit operators over a non-temporal meaning substrate.
 
 ---
 
@@ -153,12 +165,17 @@ Aurora + PEF is protected under Australian provisional patents:
 - **2025905835 — Compositional Primitives Architecture**  
 - **2025905860 — Persistent Existence Frame (PEF)**  
 - **2025905885 — Integrated Aurora + PEF Reasoning System**  
+- **2025906132 — Aurora–PEF Advanced Reasoning Engine**  
+
+Together, these filings protect the substrate (PEF), the conceptual structures (Roles, Domains, Spans), the operator system, and the full Aurora reasoning cycle.
 
 ---
-
 ## 📫 Contact
 
-For research correspondence:  
+For research correspondence, collaboration inquiries, or technical review:
+
 **Margaret Stokes**  
-*(Email provided in the included papers)*  
+📧 margaret.stokes.ai@gmail.com
+
+(Please note: this address is for research-related correspondence only.)
 
