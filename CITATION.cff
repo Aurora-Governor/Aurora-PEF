@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: "Aurora + PEF: A Compositional Reasoning Substrate for Language Models"
+authors:
+  - family-names: "Stokes"
+    given-names: "Margaret"
+date-released: 2025-12-10
+version: 1.0
+url: https://github.com/milarien/Aurora-PEF
