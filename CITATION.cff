@@ -3,6 +3,13 @@ title: "Aurora + PEF: A Compositional Reasoning Substrate for Language Models"
 authors:
   - family-names: "Stokes"
     given-names: "Margaret"
-date-released: 2025-12-10
-version: 1.0
-url: https://github.com/milarien/Aurora-PEF
+    orcid: ""
+date-released: 2025-12-11
+url: "https://github.com/milarien/Aurora-PEF"
+version: "1.0.0"
+abstract: >
+  Aurora + PEF is a structure-first reasoning architecture that provides explicit
+  compositional operators, structured conceptual state, and a non-temporal grounding
+  frame for language-model reasoning. This repository includes specifications,
+  demonstrations, and supporting documentation.
+
