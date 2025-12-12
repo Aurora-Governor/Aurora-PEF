@@ -64,3 +64,23 @@ This demo shows that once operators are explicit, we can:
 
 That is the point.
 
+## Purpose and Scope
+
+This demo is intentionally hard-coded. Its purpose is to make the **structure of reasoning explicit**, not to optimize it, scale it, or present a finished system.
+
+The goal is to show how Aurora treats reasoning as traversal over explicit operators, culminating in a **terminal stance** (e.g. tension, conditionality), rather than collapsing everything into a single fluent output.
+
+## Included Corpora
+
+The demo includes several small text corpora illustrating different reasoning regimes:
+
+- **`baseline.txt`**  
+  Clean, well-formed reasoning used to demonstrate normal behaviour.
+
+- **`stress_if_sink.txt`**  
+  A stress test illustrating conditional self-loops and the need for escape rules.
+
+- **`contradiction.txt`**  
+  Competing hypotheses leading to different coherent terminal stances under the same evidence.
+
+Each corpus is intentionally minimal and human-readable.
