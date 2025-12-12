@@ -1,0 +1,10 @@
+We clarify the initial goal of the project.
+Then we identify the core requirements.
+Because several requirements depend on external systems, we note potential risks.
+But some risks are uncertain, so we map degrees of likelihood.
+Then we outline the first round of solutions.
+Because early solutions reveal gaps, we revise the problem definition.
+But revisions introduce new constraints we must respect.
+Then we refine the short list of viable approaches.
+If a key assumption fails during refinement, we adjust the approach accordingly.
+Then we formalize the working draft.
