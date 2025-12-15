@@ -1,3 +1,6 @@
+raise RuntimeError(
+    "This public demo has been temporarily disabled pending conversion "
+    "to a non-operational reference version. See README for details."
 """
 Aurora CLI Demo — Ambiguity-Aware Reasoning
 
