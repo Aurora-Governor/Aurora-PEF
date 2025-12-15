@@ -14,19 +14,89 @@ Aurora + PEF constructs meaning.
 
 ## 🚀 Start Here
 
-If you're new to Aurora, begin with:
+If you're new to Aurora + PEF, begin here:
 
-- **Aurora Architecture Overview**  
-- **Executive Summary**  
-- **Primitives**  
-- **Ambiguity Demonstrator**
+- **Live Admissibility Gate Demo (web):**  
+  https://milarien.github.io/Aurora-PEF/
+
+- **Architecture overview:**  
+  `docs/Aurora-Architecture-Overview.md`
+
+- **Executive summary:**  
+  `docs/Executive-Summary.md`
+
+- **Research abstract:**  
+  `docs/Research-Abstract.md`
+
+- **Primitive operators:**  
+  `docs/primitives.md`
+
+- **Persistent Existence Frame (PEF):**  
+  `docs/pef.md`
+
+- **Runnable demos:**  
+  `demos/`
+
 
 These provide the conceptual foundation of the architecture and explain why transformers consistently fail at structured reasoning.
 
 ---
-▶️ Aurora Demo
-A minimal, auditable demonstration of constraint-governed reasoning and explicit ambiguity handling.
-👉 demos/aurora_cli_demo.py
+## ▶️ Demos
+
+Runnable, minimal demonstrations live under `demos/`.  
+Each demo isolates a specific failure mode or control surface.
+
+### 01 — Reasoning Kernel: Ambiguity
+**`demos/01_reasoning_kernel_ambiguity/`**
+
+Demonstrates:
+- parallel admissible interpretations
+- refusal to collapse without forcing constraints
+- explicit ambiguity as a first-class state
+
+Key files:
+- `aurora_ambiguity_demo.py`
+- `cli_demo.py`
+
+---
+
+### 02 — Interactive Clarification CLI
+**`demos/02_interactive_clarification_cli/`**
+
+Demonstrates:
+- hard STOP on unresolved ambiguity
+- clarification questions that target the utterance, not the world
+- refusal as correct reasoning
+
+Key file:
+- `aurora_cli_demo.py`
+
+---
+
+### 03 — Constraint Governance / Extraction
+**`demos/03_constraint_governance_extraction/`**
+
+Demonstrates:
+- constraint-scoped interpretation
+- refusal of unsupported premise injection
+- explicit extraction traces
+
+Key files:
+- `clean_extract.py`
+- `extractor_prompt.txt`
+- example inputs (`input_*.txt`)
+
+---
+
+### Operator Lattice Prototype
+**`demos/operator-lattice/`**
+
+Experimental prototype exploring:
+- operator-level state transitions
+- lattice-based resolution
+- explicit frame traversal
+
+This is exploratory and not presented as a finished system.
 
 ## 📘 Overview
 
@@ -66,7 +136,7 @@ Ambiguity is the diagnostic surface revealing the absence of structured reasonin
 
 ### **Aurora Architecture Overview**  
 High-level conceptual description of the architecture.  
-👉 `docs/Executive-Summary.md`
+👉 `docs/Aurora-Architecture-Overview.md`
 
 ### **Research Abstract**  
 Problem framing + contribution.  
