@@ -1,0 +1,89 @@
+{
+  "trace_id": "lucy_sister_unknown",
+  "title": "Lucy’s sister is not licensed",
+  "version": "1.0",
+  "created_utc": "2025-12-16T13:38:48Z",
+  "source_text": "Lucy has two brothers. Determine whether Lucy has a sister.",
+  "entities": {},
+  "events": [
+    {
+      "t": "utterance",
+      "id": "e1",
+      "data": {
+        "speaker": "user",
+        "text": "Lucy has two brothers."
+      }
+    },
+    {
+      "t": "utterance",
+      "id": "e2",
+      "data": {
+        "speaker": "user",
+        "text": "Determine whether Lucy has a sister."
+      }
+    },
+    {
+      "t": "ambiguity_detected",
+      "id": "e3",
+      "data": {
+        "kind": "underspecified_world",
+        "span": "has a sister",
+        "candidates": [
+          "Lucy has at least one sister",
+          "Lucy has no sisters"
+        ],
+        "question": "The text does not specify whether Lucy has a sister. Do you want to (A) add a fact, or (B) treat this as unknown?"
+      }
+    },
+    {
+      "t": "clarification_options",
+      "id": "e4",
+      "data": {
+        "options": [
+          {
+            "key": "A",
+            "answer": "Add the fact: Lucy has no sisters.",
+            "binds": {
+              "Lucy.sister": "none"
+            }
+          },
+          {
+            "key": "B",
+            "answer": "Keep it unknown; do not add facts.",
+            "binds": {
+              "Lucy.sister": "unknown"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "t": "binding_committed",
+      "id": "e5",
+      "data": {
+        "binding": {
+          "Lucy.sister": "<CHOICE>"
+        },
+        "commit_policy": "no_invention_without_license"
+      }
+    },
+    {
+      "t": "resolved_interpretation",
+      "id": "e6",
+      "data": {
+        "interpretation": "Given only 'two brothers', Lucy’s having a sister is not determined. (stance depends on choice)",
+        "facts": [
+          "brothers_count(Lucy)=2"
+        ]
+      }
+    },
+    {
+      "t": "terminal_stance",
+      "id": "e7",
+      "data": {
+        "stance": "refusal_resolved",
+        "notes": "System refuses to infer sisterhood from 'two brothers' without an explicit license."
+      }
+    }
+  ]
+}

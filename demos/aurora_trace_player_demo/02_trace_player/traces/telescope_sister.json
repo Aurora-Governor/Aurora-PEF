@@ -1,0 +1,88 @@
+{
+  "trace_id": "telescope_sister",
+  "title": "Emma, telescope, and “her sister”",
+  "version": "1.0",
+  "created_utc": "2025-12-16T13:38:48Z",
+  "source_text": "Emma saw her sister with a telescope.",
+  "entities": {},
+  "events": [
+    {
+      "t": "utterance",
+      "id": "e1",
+      "data": {
+        "speaker": "user",
+        "text": "Emma saw her sister with a telescope."
+      }
+    },
+    {
+      "t": "ambiguity_detected",
+      "id": "e2",
+      "data": {
+        "kind": "pronoun_antecedent",
+        "span": "her sister",
+        "candidates": [
+          "Emma's sister",
+          "(someone else's) sister"
+        ],
+        "question": "Please clarify: Is “her sister” referring to Emma’s sister or someone else’s sister?"
+      }
+    },
+    {
+      "t": "clarification_options",
+      "id": "e3",
+      "data": {
+        "options": [
+          {
+            "key": "A",
+            "answer": "It refers to Emma’s sister.",
+            "binds": {
+              "her sister": "Emma’s sister"
+            }
+          },
+          {
+            "key": "B",
+            "answer": "It refers to Lucy’s sister.",
+            "binds": {
+              "her sister": "Lucy’s sister"
+            }
+          },
+          {
+            "key": "C",
+            "answer": "I can’t tell from the text.",
+            "binds": {
+              "her sister": "UNRESOLVED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "t": "binding_committed",
+      "id": "e4",
+      "data": {
+        "binding": {
+          "her sister": "<CHOICE>"
+        },
+        "commit_policy": "bind_then_commit"
+      }
+    },
+    {
+      "t": "resolved_interpretation",
+      "id": "e5",
+      "data": {
+        "interpretation": "Emma saw Emma’s sister with a telescope. (binding chosen at replay)",
+        "facts": [
+          "saw(Emma, Emma’s sister, with=telescope)"
+        ]
+      }
+    },
+    {
+      "t": "terminal_stance",
+      "id": "e6",
+      "data": {
+        "stance": "refusal_resolved",
+        "notes": "Ambiguity resolved by explicit user binding; committed after binding."
+      }
+    }
+  ]
+}

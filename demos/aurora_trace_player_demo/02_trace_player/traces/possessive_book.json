@@ -1,0 +1,81 @@
+{
+  "trace_id": "possessive_book",
+  "title": "Possessive pronoun binding",
+  "version": "1.0",
+  "created_utc": "2025-12-16T13:38:48Z",
+  "source_text": "Ava gave Mia her book.",
+  "entities": {},
+  "events": [
+    {
+      "t": "utterance",
+      "id": "e1",
+      "data": {
+        "speaker": "user",
+        "text": "Ava gave Mia her book."
+      }
+    },
+    {
+      "t": "ambiguity_detected",
+      "id": "e2",
+      "data": {
+        "kind": "pronoun_possessive",
+        "span": "her book",
+        "candidates": [
+          "Ava's book",
+          "Mia's book"
+        ],
+        "question": "Please clarify: whose book is it — Ava’s or Mia’s?"
+      }
+    },
+    {
+      "t": "clarification_options",
+      "id": "e3",
+      "data": {
+        "options": [
+          {
+            "key": "A",
+            "answer": "It was Ava’s book.",
+            "binds": {
+              "her book": "Ava’s book"
+            }
+          },
+          {
+            "key": "B",
+            "answer": "It was Mia’s book.",
+            "binds": {
+              "her book": "Mia’s book"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "t": "binding_committed",
+      "id": "e4",
+      "data": {
+        "binding": {
+          "her book": "<CHOICE>"
+        },
+        "commit_policy": "bind_then_commit"
+      }
+    },
+    {
+      "t": "resolved_interpretation",
+      "id": "e5",
+      "data": {
+        "interpretation": "Ava gave Mia Ava’s book. (binding chosen at replay)",
+        "facts": [
+          "gave(Ava, Mia, book(owner=<CHOICE>))"
+        ]
+      }
+    },
+    {
+      "t": "terminal_stance",
+      "id": "e6",
+      "data": {
+        "stance": "refusal_resolved",
+        "notes": "Possessive pronoun ambiguity resolved via bounded clarification."
+      }
+    }
+  ]
+}
