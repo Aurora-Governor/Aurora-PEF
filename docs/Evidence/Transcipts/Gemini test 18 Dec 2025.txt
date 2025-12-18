@@ -1,0 +1,99 @@
+PROVENANCE NOTICE
+
+This file is a verbatim transcription of model output
+captured on 18 Dec 2025.
+
+Source model: Gemini
+Capture method: copy/paste to text
+No semantic content altered.
+Formatting normalized for readability.
+
+
+Alice has a key.
+Bob has a key.
+Alice’s key was last seen on the table.
+The key is missing.
+
+Where is the key?
+
+Based on the information provided, the most logical answer is that Alice has the key.
+
+Here is the reasoning:
+
+The Statement of Possession: Your first sentence explicitly states, "Alice has a key."
+
+The Change in Location: The key was last seen on the table, but it is now "missing" from that specific spot.
+
+The Conclusion: If the key is missing from the table but Alice "has" it, the simplest explanation is that she picked it up.
+
+While Bob also has a key, the text treats their possessions separately ("Alice has a key. Bob has a key."), implying there are two different keys involved.
+
+Would you like to try another logic puzzle, or perhaps a more complex "Theory of Mind" riddle?
+
+Entities:
+
+  alice_key
+
+  bob_key
+
+
+
+Trace:
+
+  last_seen(alice_key) = table
+
+
+
+State:
+
+  current_location(alice_key) = unknown
+
+  current_location(bob_key)   = unknown
+
+
+
+Referent: ambiguous
+
+Allowed move: bind referent
+
+To resolve the ambiguity in the state machine, we must apply the principle of linguistic salience (recency).
+
+In the provided trace, "Alice’s key" is the most recently specified object of the class "key" before the definite reference "the key" appears. Therefore, the binding is as follows:
+
+Binding and State Update
+Bind Referent: the_key → alice_key
+
+Resolved State: * current_location(alice_key) = alice (based on the initial possession premise)
+
+current_location(bob_key) = bob
+
+Logic Summary
+Entity	Trace (Last Seen)	Possession Premise	Resolved Location
+alice_key	table	"Alice has a key"	alice
+bob_key	unknown	"Bob has a key"	bob
+Because alice_key is the only entity with a recorded location trace (the table) that now conflicts with the state (missing), it is the only logical referent for the "missing" status. Since the premise "Alice has a key" remains true, the "missing" status from the table is resolved by her possession.
+
+Would you like to introduce a new event to the trace (e.g., a "drop" or "exchange") to see how it affects the binding?
+
+Alice’s key.
+
+Based on the formal logic and trace provided in our previous exchange, here is the resolved status for the entity alice_key:
+
+Entity Status: alice_key
+Property	Value
+Owner	Alice
+Last Known Static Location	Table
+Current Status	Missing (from table)
+Resolved Location	In Alice's possession
+Logical Derivation
+The resolution follows a Constraint Satisfaction model:
+
+Possession Constraint: The premise "Alice has a key" establishes a persistent link between the entity alice_key and the container alice.
+
+Observation Conflict: The trace last_seen(alice_key) = table combined with the state missing creates a null value for the table location.
+
+Binding: Since the possession constraint must remain true, the "missing" status is simply a transition of the key from a static location (table) to a mobile carrier (Alice).
+
+Logic Note: In this system, "missing" does not mean the object has ceased to exist; it signifies a discrepancy between the last_seen coordinate and the current_coordinate.
+
+Would you like to execute a Move command (e.g., move(alice_key, drawer)) or introduce a new entity to test the referent binding further?

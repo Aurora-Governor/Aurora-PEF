@@ -1,0 +1,69 @@
+PROVENANCE NOTICE
+
+This file is a verbatim transcription of model output
+captured on 18 Dec 2025.
+
+Source model: Grok
+Capture method: copy/paste to text
+No semantic content altered.
+Formatting normalized for readability.
+
+Alice has a key.
+Bob has a key.
+Alice’s key was last seen on the table.
+The key is missing.
+Where is the key?Bob has the key.
+Explanation:
+
+Both Alice and Bob possess a key each (likely house keys, car keys, or similar duplicates).
+Alice’s specific key was last observed on the table.
+When "the key" (referring to Alice’s key) goes missing from the table, the logical conclusion is that Bob took it—perhaps to use it himself, as a prank, or for some other reason—leaving his own key in his possession.
+
+No other location or person is implicated by the given facts, making Bob the one holding the missing key.Entities:
+  alice_key
+  bob_key
+Trace:
+  last_seen(alice_key) = table
+State:
+  current_location(alice_key) = unknown
+  current_location(bob_key) = unknown
+Referent: ambiguous
+Allowed move: bind referentThe key is with Bob.
+Explanation:
+
+There are two distinct entities: alice_key (Alice's key) and bob_key (Bob's key).
+The statement "Alice’s key was last seen on the table" establishes that alice_key was on the table.
+"The key is missing" uses a definite description ("the key"), creating an ambiguous referent—it could in principle refer to either key, but contextually points to the one whose location was just mentioned (i.e., Alice's key, the one last seen on the table).
+The puzzle allows us to resolve ("bind") this ambiguous referent using the provided move.
+Binding "the key" to alice_key (the contextually salient one) means Alice's key is now missing from its last known location (the table).
+No information suggests Alice took her own key, misplaced it, or that any third party is involved.
+The only other entity who could plausibly have taken Alice's key from the table is Bob.
+Therefore, the current location of alice_key is with Bob (who already has his own bob_key).
+
+Resolved state:
+current_location(alice_key) = bob
+current_location(bob_key) = bob
+Referent: bound to alice_keyAlice’s key.Alice’s key is with Bob.
+Updated Trace:
+
+last_seen(alice_key) = table
+current_location(alice_key) = bob
+current_location(bob_key) = bob (unchanged, as Bob already has his own key)
+
+Explanation:
+"The key" in the original puzzle has its referent bound to alice_key (the one last seen on the table and now missing).
+No other possibilities are supported by the facts: Alice did not take her own key (it was left on the table and went missing without her involvement implied), and no third party or alternative location is mentioned.
+The only person who could have taken it from the table is Bob.
+Thus, Alice’s key is now in Bob's possession.Bob’s key.Bob’s key is with Bob.
+Updated Trace:
+
+last_seen(alice_key) = table
+current_location(alice_key) = bob
+current_location(bob_key) = bob
+
+Explanation:
+Bob originally has his own key (bob_key).
+Nothing in the puzzle indicates that Bob’s key was ever on the table, moved, or went missing.
+The only key that disappeared from its last known location (the table) is Alice’s key.
+Bob took Alice’s key, so he now possesses both keys—his own remains with him.
+Thus, Bob’s key is still (and always has been) with Bob.
