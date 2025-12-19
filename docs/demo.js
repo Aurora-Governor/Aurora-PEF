@@ -1,9 +1,13 @@
 (() => {
-  // Keep the endpoint out of the HTML. Still visible in DevTools if someone digs.
-  const WORKER_URL = "https://YOUR_WORKER_SUBDOMAIN.workers.dev"; // <-- set this
+  // ✅ Your real Cloudflare Worker endpoint:
+  const WORKER_URL = "https://aurora-clarify.milamba.workers.dev";
 
-  // Strict allowlist: only IDs, no text prompts.
-  const DEMO_ID = "bird_ambiguity_v1";
+  // ✅ The fixed scenario text we send to the worker (matches your worker’s string checks)
+  const BASE_CONTEXT = [
+    "James has a bird.",
+    "Jenny has a bird.",
+    "The bird is missing."
+  ];
 
   const el = (id) => document.getElementById(id);
 
@@ -29,16 +33,22 @@
     resetBtn.style.display = "none";
   }
 
-  async function callWorker(choice = null) {
+  // This function calls your Cloudflare Worker and returns the JSON response.
+  async function callWorker(binding) {
     const res = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ demo_id: DEMO_ID, choice }),
+      // ✅ IMPORTANT: Your worker expects { context: [...], binding: "james_bird" }
+      body: JSON.stringify({
+        context: BASE_CONTEXT,
+        binding: binding ?? null
+      })
     });
 
     if (!res.ok) {
       throw new Error(`Worker error: ${res.status}`);
     }
+
     return res.json();
   }
 
@@ -58,30 +68,40 @@
       return;
     }
 
-    // Fallback: if your worker ever changes, don’t invent.
+    if (data.status === "UNKNOWN") {
+      setStatus("bad", "Gate verdict: INADMISSIBLE_UNSUPPORTED", data.message || "Insufficient information.");
+      resetBtn.style.display = "inline-flex";
+      out.textContent += `System: ${data.status}\n`;
+      return;
+    }
+
     setStatus("bad", "Gate verdict: INADMISSIBLE_UNSUPPORTED", "Unexpected response.");
+    resetBtn.style.display = "inline-flex";
     out.textContent += `Unexpected: ${JSON.stringify(data, null, 2)}\n`;
   }
 
-  async function choose(choice) {
-    out.textContent += `User: ${choice}\n`;
+  async function choose(binding) {
+    out.textContent += `User: ${binding}\n`;
 
-    const data = await callWorker(choice);
+    const data = await callWorker(binding);
 
     if (data.status === "RESOLVED") {
       setStatus("ok", "Gate verdict: ADMISSIBLE", "Resolution permitted after binding.");
       choices.style.display = "none";
+      resetBtn.style.display = "inline-flex";
       out.textContent += `System: ${data.statement}\n`;
       return;
     }
 
     setStatus("bad", "Gate verdict: INADMISSIBLE_UNSUPPORTED", "Unexpected response.");
+    resetBtn.style.display = "inline-flex";
     out.textContent += `Unexpected: ${JSON.stringify(data, null, 2)}\n`;
   }
 
   startBtn?.addEventListener("click", () => {
     runInitial().catch((e) => {
       setStatus("bad", "Gate verdict: INADMISSIBLE_UNSUPPORTED", "Demo unavailable.");
+      resetBtn.style.display = "inline-flex";
       out.textContent += `${e.message}\n`;
     });
   });
@@ -93,8 +113,10 @@
   choices?.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-choice]");
     if (!btn) return;
+
     choose(btn.dataset.choice).catch((err) => {
       setStatus("bad", "Gate verdict: INADMISSIBLE_UNSUPPORTED", "Demo unavailable.");
+      resetBtn.style.display = "inline-flex";
       out.textContent += `${err.message}\n`;
     });
   });
