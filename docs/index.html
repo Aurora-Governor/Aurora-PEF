@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aurora-PEF — Admissibility Gate Demo</title>
+  <title>Aurora-PEF – Admissibility Gate Demo</title>
   <meta name="description"
         content="A minimal static demo showing why LLM outputs require an admissibility/refusal layer: no premature commitment, no scope extension, and no unauthorised continuation." />
   <link rel="stylesheet" href="style.css">
@@ -18,14 +18,14 @@
       <h1>Admissibility Gate Demo <span class="badge">output entitlement control</span></h1>
 
       <p class="sub">
-        Modern LLMs don’t mainly fail because they don’t know facts.
-        They fail because they <em>don’t know when they’re entitled to speak</em>.
+        Modern LLMs don't mainly fail because they don't know facts.
+        They fail because they <em>don't know when they're entitled to speak</em>.
       </p>
 
       <div class="heroRow">
         <div class="callout">
           <strong>Thesis:</strong> generation is cheap; <em>entitlement</em> is hard.
-          This gate decides when an answer is allowed to exist — and enforces silence when it isn’t.
+          This gate decides when an answer is allowed to exist – and enforces silence when it isn't.
           <div class="hr"></div>
           <div class="small">
             <strong>This is not an interpretive framework.</strong>
@@ -53,105 +53,175 @@
 2) Gate evaluates entitlement (input → output consistency only)
 3) Verdict acts on output (deliver / replace / block / truncate)
 
-Either the system speaks lawfully — or it stays silent.</div>
+Either the system speaks lawfully – or it stays silent.</div>
       </div>
     </header>
 
-    <aside class="sidebar">
-      <h3>For engineers who hate theory</h3>
-      <ul>
-        <li>This is a <strong>runtime filter</strong>, not a model.</li>
-        <li>It runs <strong>after generation</strong>, before delivery.</li>
-        <li>It can <strong>block</strong>, <strong>replace</strong>, or <strong>truncate</strong> output.</li>
-        <li>No prompt tricks. No retries. No training.</li>
-        <li>If scope or binding isn’t explicit, output doesn’t ship.</li>
-      </ul>
-      <p class="small"><em>If you can insert middleware, you can use this.</em></p>
-    </aside>
-
-    <div class="grid">
-
-      <section class="card">
-        <h2>Invariants <span class="badge">non-negotiable</span></h2>
+    <div class="contentRow">
+      <aside class="sidebar">
+        <h3>For engineers who hate theory</h3>
         <ul>
-          <li><strong>No premature commitment</strong></li>
-          <li><strong>No scope extension</strong></li>
-          <li><strong>No unauthorised continuation</strong></li>
+          <li>This is a <strong>runtime filter</strong>, not a model.</li>
+          <li>It runs <strong>after generation</strong>, before delivery.</li>
+          <li>It can <strong>block</strong>, <strong>replace</strong>, or <strong>truncate</strong> output.</li>
+          <li>No prompt tricks. No retries. No training.</li>
+          <li>If scope or binding isn't explicit, output doesn't ship.</li>
         </ul>
-      </section>
+        <p class="small"><em>If you can insert middleware, you can use this.</em></p>
+      </aside>
 
-      <section class="card">
-        <h2>Gate outcomes <span class="badge">finite states</span></h2>
-        <pre>{
+      <div class="grid">
+
+        <section class="card">
+          <h2>Invariants <span class="badge">non-negotiable</span></h2>
+          <ul>
+            <li><strong>No premature commitment</strong></li>
+            <li><strong>No scope extension</strong></li>
+            <li><strong>No unauthorised continuation</strong></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Gate outcomes <span class="badge">finite states</span></h2>
+          <pre>{
   "ADMISSIBLE": "deliver unchanged",
   "AMBIGUOUS_UNRESOLVED": "refuse / clarify",
   "INADMISSIBLE_UNSUPPORTED": "block",
   "TRUNCATE_AFTER_ENTITLEMENT": "stop output"
 }</pre>
-      </section>
+        </section>
 
-      <section class="card">
-        <h2>Case 1 — Illegitimate Commitment</h2>
+        <section class="card">
+          <h2>Case 1 – Illegitimate Commitment</h2>
 
-        <pre>Emma’s sister and Lucy’s sister both live overseas.
+          <pre>Emma's sister and Lucy's sister both live overseas.
 Emma told Lucy that her sister was arriving.
 Whose sister is arriving?</pre>
 
-        <div class="status warn">
-          <strong>Gate verdict: AMBIGUOUS_UNRESOLVED</strong>
-          <div class="small">Multiple interpretations remain admissible.</div>
-        </div>
+          <div class="status warn">
+            <strong>Gate verdict: AMBIGUOUS_UNRESOLVED</strong>
+            <div class="small">Multiple interpretations remain admissible.</div>
+          </div>
 
-        <p class="small">
-          <strong>Note:</strong> The gate does not re-prompt the model; it changes what is delivered.
-        </p>
-      </section>
+          <p class="small">
+            <strong>Note:</strong> The gate does not re-prompt the model; it changes what is delivered.
+          </p>
+        </section>
+<section class="card">
+  <h2>Case 2 — Illegitimate Scope Extension <span class="badge">premise injection</span></h2>
 
-      <section class="card">
-        <h2>Coverage & Guarantees <span class="badge">scope disclosure</span></h2>
+  <h3>Prompt</h3>
+  <pre>Policy section 4 applies to contractors operating offsite.
+An employee violated policy section 4.
+Was this a breach?</pre>
 
-        <p class="small">The cases above are minimal witnesses — not the limit of application.</p>
-        <p class="small"><strong>Goal:</strong> fewer false commitments — not more refusals.</p>
+  <h3>Admissible narrow conclusion</h3>
+  <pre>No. Section 4 applies to contractors; the actor is an employee.</pre>
 
-        <h3>Coverage includes</h3>
-        <ul>
-          <li>single- and multi-turn interactions</li>
-          <li>preservation of unresolved ambiguity</li>
-          <li>termination after entitlement</li>
-          <li>prevention of narrative drift</li>
-        </ul>
+  <p class="small">
+    Screenshots captured across multiple LLMs showing scope handling and overreach.
+  </p>
 
-        <h3>Evaluates only</h3>
-        <ul>
-          <li>user-provided input</li>
-          <li>model candidate output</li>
-          <li>explicit scopes, bindings, constraints</li>
-        </ul>
+  <img src="./images/chatgpt_case2.png" alt="ChatGPT output for Case 2" style="max-width:100%; margin:12px 0; border-radius:8px;">
+  <img src="./images/claude_case2.png" alt="Claude output for Case 2" style="max-width:100%; margin:12px 0; border-radius:8px;">
+  <img src="./images/gemini_case2.png" alt="Gemini output for Case 2" style="max-width:100%; margin:12px 0; border-radius:8px;">
+  <img src="./images/grok_case2.png" alt="Grok output for Case 2" style="max-width:100%; margin:12px 0; border-radius:8px;">
 
-        <p class="small">If a scope or binding is not stated, it is treated as unavailable.</p>
-      </section>
+  <div class="status ok">
+    <strong>Gate verdict: ADMISSIBLE</strong>
+    <div class="small">Conclusion follows strictly from stated scope; no additional premises introduced.</div>
+  </div>
 
-      <section class="card">
-        <h2>What this is (and isn’t)</h2>
+  <h3>What the gate blocks</h3>
+  <pre>However, there is probably another policy section / code of conduct…</pre>
 
-        <h3>This is</h3>
-        <ul>
-          <li>an output entitlement control layer</li>
-          <li>a refusal-first governance mechanism</li>
-        </ul>
+  <div class="status bad">
+    <strong>Gate verdict: INADMISSIBLE_UNSUPPORTED</strong>
+    <div class="small">Speculation about other rules is not supported by the provided context.</div>
+  </div>
+</section>
 
-        <h3>This is not</h3>
-        <ul>
-          <li>a foundation model</li>
-          <li>a prompt trick</li>
-          <li>a confidence wrapper</li>
-        </ul>
-      </section>
+<section class="card">
+  <h2>Case 3 — Termination Invariant <span class="badge">control condition</span></h2>
+
+  <h3>What this enforces</h3>
+  <pre>Once an admissible conclusion is reached (or once a refusal is required), the system must stop.
+No additional claims, hypotheticals, “in practice…”, or policy/speculation may be introduced unless explicitly requested.</pre>
+
+  <p class="small">
+    This failure mode appears in both Case 1 and Case 2:
+  </p>
+  <ul>
+    <li><strong>Case 1:</strong> models commit to one binding, then continue reasoning as if that commitment were licensed.</li>
+    <li><strong>Case 2:</strong> models give a correct narrow answer, then keep talking and inject unsupported premises.</li>
+  </ul>
+
+  <div class="status bad">
+    <strong>Gate verdict: TRUNCATE_AFTER_ENTITLEMENT</strong>
+    <div class="small">Stop generation at the boundary of entitlement: after admissible answer, or at refusal/clarification.</div>
+  </div>
+
+  <h3>Gate trace</h3>
+  <pre>{
+  "termination_invariant": "ENFORCE",
+  "rule": "Stop at entitlement boundary",
+  "when": [
+    "primary_conclusion is ADMISSIBLE and answers the question",
+    "status is AMBIGUOUS_UNRESOLVED (refusal/clarification required)",
+    "status is INADMISSIBLE_UNSUPPORTED (block unsupported continuation)"
+  ],
+  "enforcement": "TRUNCATE_OUTPUT"
+}</pre>
+</section>
+
+        <section class="card">
+          <h2>Coverage & Guarantees <span class="badge">scope disclosure</span></h2>
+          
+
+          <p class="small">The cases above are minimal witnesses – not the limit of application.</p>
+          <p class="small"><strong>Goal:</strong> fewer false commitments – not more refusals.</p>
+
+          <h3>Coverage includes</h3>
+          <ul>
+            <li>single- and multi-turn interactions</li>
+            <li>preservation of unresolved ambiguity</li>
+            <li>termination after entitlement</li>
+            <li>prevention of narrative drift</li>
+          </ul>
+
+          <h3>Evaluates only</h3>
+          <ul>
+            <li>user-provided input</li>
+            <li>model candidate output</li>
+            <li>explicit scopes, bindings, constraints</li>
+          </ul>
+
+          <p class="small">If a scope or binding is not stated, it is treated as unavailable.</p>
+        </section>
+
+        <section class="card">
+          <h2>What this is (and isn't)</h2>
+
+          <h3>This is</h3>
+          <ul>
+            <li>an output entitlement control layer</li>
+            <li>a refusal-first governance mechanism</li>
+          </ul>
+
+          <h3>This is not</h3>
+          <ul>
+            <li>a foundation model</li>
+            <li>a prompt trick</li>
+            <li>a confidence wrapper</li>
+          </ul>
+        </section>
+
+      </div>
 
     </div>
 
     <footer>
-      This page is intentionally static. It demonstrates the contract — not the tooling.
+      This page is intentionally static. It demonstrates the contract – not the tooling.
     </footer>
 
   </div>
