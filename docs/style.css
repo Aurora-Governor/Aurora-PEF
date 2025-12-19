@@ -11,11 +11,9 @@
   --border:rgba(255,255,255,0.08);
 }
 
-*{box-sizing:border-box}
+*{ box-sizing:border-box; }
 
-html, body{
-  max-width:100%;
-}
+html, body{ max-width:100%; }
 
 body{
   margin:0;
@@ -23,11 +21,11 @@ body{
   background:radial-gradient(1200px 800px at 20% 0%, #0f1a2d 0%, var(--bg) 55%);
   color:var(--text);
   line-height:1.6;
-  overflow-x:hidden; /* prevents “one bad token” from wrecking the viewport */
+  overflow-x:hidden;
 }
 
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
 /* Readable width */
 .wrap{
@@ -43,23 +41,6 @@ header{
   background:linear-gradient(180deg, rgba(17,24,39,0.92), rgba(15,23,42,0.92));
   border-radius:18px;
 }
-/* Make the sidebar unmissable */
-.sidebar{
-  max-width: 1080px;                 /* stop it looking "tiny" */
-  border-color: rgba(96,165,250,0.35);
-  background: rgba(2, 6, 23, 0.78);
-}
-
-/* Your global UL makes lists muted; override inside sidebar */
-.sidebar ul,
-.sidebar li{
-  color: var(--text);
-}
-
-/* Optional: make the title pop */
-.sidebar h3{
-  color: var(--text);
-}
 
 .kicker{
   font-size:12px;
@@ -69,8 +50,8 @@ header{
   margin:0 0 10px;
 }
 
-h1{margin:0 0 10px;font-size:30px}
-h2{margin:0 0 8px;font-size:18px}
+h1{ margin:0 0 10px; font-size:30px; }
+h2{ margin:0 0 8px; font-size:18px; }
 h3{
   margin:14px 0 8px;
   font-size:12px;
@@ -79,7 +60,7 @@ h3{
   text-transform:uppercase;
 }
 
-.sub{margin:0;color:var(--muted);max-width:80ch}
+.sub{ margin:0; color:var(--muted); max-width:80ch; }
 
 /* Hero row */
 .heroRow{
@@ -88,8 +69,8 @@ h3{
   grid-template-columns:1fr;
   gap:14px;
 }
-@media(min-width:960px){
-  .heroRow{grid-template-columns:1.18fr 0.82fr}
+@media (min-width:960px){
+  .heroRow{ grid-template-columns:1.18fr 0.82fr; }
 }
 
 .callout,.cta{
@@ -124,7 +105,6 @@ h3{
   background:rgba(2,6,23,0.38);
 }
 
-/* The “pipeline” block is pre-ish: keep it inside its box */
 .pipe{
   margin-top:10px;
   padding:12px;
@@ -132,25 +112,43 @@ h3{
   border:1px solid var(--border);
   background:rgba(2,6,23,0.55);
   font-size:13px;
-
-  /* KEY: don’t blow out layout */
   max-width:100%;
   overflow-x:auto;
 
-  /* KEY: wrap when possible */
   white-space:pre-wrap;
   overflow-wrap:anywhere;
   word-break:break-word;
 }
 
-/* Sidebar: readable, non-destructive */
+/* --- LAYOUT: sidebar + content --- */
+.contentRow{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:1fr;  /* mobile stacks */
+  gap:16px;
+}
+
+/* desktop: main content left, sidebar right */
+@media (min-width: 920px){
+  .contentRow{
+    grid-template-columns: 1fr 340px; /* widen a bit so it doesn’t feel cramped */
+    align-items:start;
+  }
+
+  /* Force placement regardless of DOM order */
+  .contentRow .grid{ grid-column:1; }
+  .contentRow .sidebar{ grid-column:2; }
+}
+
+/* --- SIDEBAR (single definition, no conflicts) --- */
 .sidebar{
-  margin:18px 0 12px;
+  margin:0;                   /* layout controls spacing via grid gap */
   padding:14px 16px;
   border-radius:14px;
-  border:1px solid rgba(96,165,250,0.28);
-  background:rgba(2,6,23,0.65);
-  max-width:72ch;
+  border:1px solid rgba(96,165,250,0.32);
+  background:rgba(2,6,23,0.72);
+  width:100%;
+  max-width:none;             /* IMPORTANT: don’t fight the grid column width */
 }
 
 .sidebar h3{
@@ -182,14 +180,17 @@ h3{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
-  margin-top:12px;
+  margin-top:0; /* spacing handled by .contentRow */
 }
-@media(min-width:920px){
-  .grid{grid-template-columns:1fr 1fr}
+@media (min-width:920px){
+  .grid{ grid-template-columns:1fr 1fr; }
 }
 
-/* CRITICAL FIX: allow grid children to shrink (prevents “super wide” layout) */
-.grid > *{
+/* Critical: allow shrink inside CSS grid */
+.contentRow > *,
+.grid > *,
+.card,
+.sidebar{
   min-width:0;
 }
 
@@ -198,9 +199,6 @@ h3{
   border-radius:18px;
   border:1px solid var(--border);
   background:linear-gradient(180deg, rgba(17,24,39,0.82), rgba(15,23,42,0.78));
-
-  /* Also critical */
-  min-width:0;
 }
 
 .badge{
@@ -213,7 +211,6 @@ h3{
   display:inline-block;
 }
 
-/* Code blocks: never widen the page */
 pre{
   margin:0;
   padding:12px;
@@ -221,7 +218,6 @@ pre{
   border:1px solid var(--border);
   background:rgba(2,6,23,0.72);
   font-size:13px;
-
   max-width:100%;
   overflow-x:auto;
 
@@ -230,7 +226,6 @@ pre{
   word-break:break-word;
 }
 
-/* Status */
 .status{
   margin-top:12px;
   padding:12px;
@@ -239,17 +234,16 @@ pre{
   background:rgba(2,6,23,0.48);
 }
 
-.ok strong{color:var(--ok)}
-.warn strong{color:var(--warn)}
-.bad strong{color:var(--bad)}
+.ok strong{ color:var(--ok); }
+.warn strong{ color:var(--warn); }
+.bad strong{ color:var(--bad); }
 
 /* Lists */
-ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-li{margin:6px 0}
+ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); }
+li{ margin:6px 0; }
 
-.small{font-size:13px;color:var(--muted);margin:8px 0 0}
-
-.hr{height:1px;background:var(--border);margin:14px 0}
+.small{ font-size:13px; color:var(--muted); margin:8px 0 0; }
+.hr{ height:1px; background:var(--border); margin:14px 0; }
 
 footer{
   margin-top:26px;
