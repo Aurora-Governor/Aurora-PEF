@@ -28,13 +28,13 @@ Nothing in this repository makes sense without them.
 1. **Persistent Existence Frame (PEF)**  
    A non-temporal substrate in which conceptual identity and meaning persist.
    PEF is what allows ambiguity, refusal, and continuity without time indexing.  
-   → `pef.md`
+   → `04_Persistent-Existence-Frame.md`
 
 2. **Compositional Primitive Operators**  
    Explicit operators (WE, THEN, WHILE, UNTIL, BECAUSE) that govern how meaning is
    constructed, linked, and collapsed.  
    These are not linguistic constructs; they are reasoning operators.  
-   → `primitives.md`
+   → `05_Compositional-Primitives.md`
 
 ---
 
