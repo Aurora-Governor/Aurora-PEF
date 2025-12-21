@@ -1,99 +1,108 @@
-# Aurora + PEF  
-### Explicit compositional reasoning on a non-temporal substrate
+# Aurora + PEF — Documentation
 
-Aurora + PEF is a structure-first reasoning framework designed to address
-systematic failures in transformer-based language models.
+This directory contains the **architectural documentation, evidence, and live demonstration assets**
+for the Aurora + Persistent Existence Frame (PEF) framework.
 
-Transformers optimize for fluent continuation.  
-Aurora constructs and governs meaning.
+The materials here support the claims demonstrated in the live admissibility gate demo and
+the runnable minimal demos in `/demos/`.
 
----
-
-## What Problem This Addresses
-
-Across models and vendors, LLMs exhibit the same failures:
-
-- premature interpretive collapse  
-- invented rules or events to justify answers  
-- contradictory heuristics across identical structures  
-- inability to refuse commitment under insufficient information  
-
-These failures are **architectural**, not trainable.
-
-Aurora + PEF demonstrates why — and what properties are required to avoid them.
+This is not end-user documentation.  
+It is an **evidentiary and architectural record**.
 
 ---
 
-## How to Approach This Repository
+## How to Navigate This Documentation
 
-This repository is **not** a product release.  
-It is an **architectural and evidentiary artifact**.
+### 1. Live Admissibility Gate Demo (web)
 
-Some components are intentionally minimal or constrained in order to separate
-**behavioral evidence** from **mechanism disclosure**.
+The canonical execution path for demonstrating output entitlement, refusal, clarification,
+and termination under constraint.
 
-### Start here:
+👉 https://milarien.github.io/Aurora-PEF/
 
-1. **Live Admissibility Gate Demo (web)**  
-   Canonical execution path demonstrating STOP → clarify → bind → resolve.  
-   👉 https://milarien.github.io/Aurora-PEF/
-
-2. **Failure Taxonomy**  
-   Architectural failure classes under incomplete information.  
-   👉 [docs/Taxonomy/Failure_Taxonomy.md](docs/Taxonomy/Failure_Taxonomy.md)
-
-3. **Architecture Overview**  
-   Structural overview of Aurora + PEF.  
-   👉 [docs/01_Aurora-Architecture-Overview.md](docs/01_Aurora-Architecture-Overview.md)
-
-4. **Runnable Minimal Demos (supporting)**  
-   Epistemic state and structural witness demos.  
-   👉 [demos/](demos/)
+Source files:
+- [index.html](index.html)
+- [demo.js](demo.js)
+- [style.css](style.css)
 
 ---
 
-## What Aurora + PEF Provides
+### 2. Failure Taxonomy
 
-- explicit epistemic states  
-- parallel admissible interpretations  
-- constraint-governed collapse  
-- refusal as a valid terminal outcome  
-- non-temporal persistence of meaning (PEF)  
+A systematic classification of architectural failure modes observed across transformer-based LLMs
+under incomplete or underspecified information.
 
-Aurora governs reasoning.  
-Transformers (optionally) handle expression.
+👉 [Taxonomy/Failure_Taxonomy.md](Taxonomy/Failure_Taxonomy.md)  
+👉 [Taxonomy/README.md](Taxonomy/README.md)
 
-The architecture rests on two foundations:
+This taxonomy provides the empirical motivation for Aurora + PEF.
 
-- the **Persistent Existence Frame (PEF)**  
-- explicit **compositional primitives**
+---
 
-Without these, the failure analyses and demos in this repository cannot be interpreted correctly.
+### 3. Architecture Overview
+
+High-level structural documentation describing how Aurora + PEF is composed and why
+constraint-first reasoning is required.
+
+- 👉 [01_Aurora-Architecture-Overview.md](01_Aurora-Architecture-Overview.md)
+- 👉 [04_Persistent-Existence-Frame.md](04_Persistent-Existence-Frame.md)
+- 👉 [05_Compositional-Primitives.md](05_Compositional-Primitives.md)
+
+These documents explain the separation between:
+- epistemic state (PEF),
+- compositional reasoning (Aurora),
+- and surface-level language generation.
+
+---
+
+### 4. Executive & Research Summaries
+
+Concise, reviewer-oriented summaries of the work.
+
+- 👉 [02_Executive-Summary.md](02_Executive-Summary.md)
+- 👉 [03_Research-Abstract.md](03_Research-Abstract.md)
+- 👉 [FOR_REVIEWERS.md](FOR_REVIEWERS.md)
+
+---
+
+### 5. Evidence & Transcripts
+
+Raw transcripts and captured outputs used as empirical evidence in the failure taxonomy
+and comparative analysis.
+
+👉 [Evidence/Transcripts/](Evidence/Transcripts/)
+
+---
+
+## Relationship to `/demos/`
+
+The documentation in this directory explains and justifies the behavior shown in:
+
+👉 [`/demos/`](../demos/)
+
+In particular:
+- the **PEF minimal demo** demonstrates epistemic state persistence without resolution,
+- the **reasoning kernel and trace demos** act as structural and evidentiary witnesses.
+
+The live web demo shows **when** a system may speak.  
+The PEF demo shows **what exists when it cannot**.
 
 ---
 
 ## Scope Note
 
-Ambiguity is used as a **minimal witness**, not the sole problem domain.
+The examples in this documentation frequently use ambiguity as a minimal witness.
+The same architectural issues generalize to:
 
-The same failure modes generalize to causal inference, explanation,
-intent attribution, and epistemic overreach.
-
----
-
-## IP Notice
-
-Protected under Australian provisional patents covering:
-
-- compositional primitives  
-- Persistent Existence Frame (PEF)  
-- conceptual state structures (Roles, Domains, Spans)  
-- the Aurora reasoning cycle  
+- causal reasoning
+- explanation generation
+- intent attribution
+- policy and rule interpretation
+- epistemic overreach
 
 ---
 
-## Contact
+## Status
 
-Margaret Stokes  
-📧 margaret.stokes.ai@gmail.com  
-(Research correspondence only)
+This documentation is current and maintained.  
+Superseded or historical materials are explicitly marked elsewhere in the repository.
