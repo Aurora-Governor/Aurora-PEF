@@ -1,72 +1,99 @@
-# docs/ — Aurora + PEF Documentation
+# Aurora + PEF  
+### Explicit compositional reasoning on a non-temporal substrate
 
-This folder contains the **core documentation** for Aurora + PEF.
+Aurora + PEF is a structure-first reasoning framework designed to address
+systematic failures in transformer-based language models.
 
-Not everything here is meant to be read in one pass.
-Some files are conceptual documentation; others exist only to render the GitHub Pages site.
-
----
-
-## Start Here (recommended order)
-
-1. **Architecture Overview**  
-   → `01_Aurora-Architecture-Overview.md`
-
-2. **Executive Summary**  
-   → `02_Executive-Summary.md`
-
-3. **Research Abstract**  
-   → `03_Research-Abstract.md`
+Transformers optimize for fluent continuation.  
+Aurora constructs and governs meaning.
 
 ---
 
-## Foundational Constructs (Do Not Skip)
+## What Problem This Addresses
 
-Aurora + PEF is defined by two non-negotiable foundations.
-Nothing in this repository makes sense without them.
+Across models and vendors, LLMs exhibit the same failures:
 
-1. **Persistent Existence Frame (PEF)**  
-   A non-temporal substrate in which conceptual identity and meaning persist.
-   PEF is what allows ambiguity, refusal, and continuity without time indexing.  
-   → `04_Persistent-Existence-Frame.md`
+- premature interpretive collapse  
+- invented rules or events to justify answers  
+- contradictory heuristics across identical structures  
+- inability to refuse commitment under insufficient information  
 
-2. **Compositional Primitive Operators**  
-   Explicit operators (WE, THEN, WHILE, UNTIL, BECAUSE) that govern how meaning is
-   constructed, linked, and collapsed.  
-   These are not linguistic constructs; they are reasoning operators.  
-   → `05_Compositional-Primitives.md`
+These failures are **architectural**, not trainable.
+
+Aurora + PEF demonstrates why — and what properties are required to avoid them.
 
 ---
 
-## Review Guidance
+## How to Approach This Repository
 
-- **FOR_REVIEWERS.md**  
-  Notes for reviewers evaluating claims, evidence, and scope boundaries.
+This repository is **not** a product release.  
+It is an **architectural and evidentiary artifact**.
+
+Some components are intentionally minimal or constrained in order to separate
+**behavioral evidence** from **mechanism disclosure**.
+
+### Start here:
+
+1. **Live Admissibility Gate Demo (web)**  
+   Canonical execution path demonstrating STOP → clarify → bind → resolve.  
+   👉 https://milarien.github.io/Aurora-PEF/
+
+2. **Failure Taxonomy**  
+   Architectural failure classes under incomplete information.  
+   👉 [docs/Taxonomy/Failure_Taxonomy.md](docs/Taxonomy/Failure_Taxonomy.md)
+
+3. **Architecture Overview**  
+   Structural overview of Aurora + PEF.  
+   👉 [docs/01_Aurora-Architecture-Overview.md](docs/01_Aurora-Architecture-Overview.md)
+
+4. **Runnable Minimal Demos (supporting)**  
+   Epistemic state and structural witness demos.  
+   👉 [demos/](demos/)
+
+---
+
+## What Aurora + PEF Provides
+
+- explicit epistemic states  
+- parallel admissible interpretations  
+- constraint-governed collapse  
+- refusal as a valid terminal outcome  
+- non-temporal persistence of meaning (PEF)  
+
+Aurora governs reasoning.  
+Transformers (optionally) handle expression.
+
+The architecture rests on two foundations:
+
+- the **Persistent Existence Frame (PEF)**  
+- explicit **compositional primitives**
+
+Without these, the failure analyses and demos in this repository cannot be interpreted correctly.
 
 ---
 
-## Evidence and Failure Analysis
+## Scope Note
 
-These live in subfolders under `docs/`:
+Ambiguity is used as a **minimal witness**, not the sole problem domain.
 
-- **Taxonomy/**  
-  Architectural failure modes (minimal witness scenarios).  
-  Start here inside the folder: `Taxonomy/README.md`
-
-- **Evidence/Transcripts/**  
-  Raw model transcripts supporting the taxonomy and empirical claims.
+The same failure modes generalize to causal inference, explanation,
+intent attribution, and epistemic overreach.
 
 ---
 
-## Website Files (plumbing)
+## IP Notice
 
-The following files exist to render the GitHub Pages site and are **not** part of
-the conceptual documentation:
+Protected under Australian provisional patents covering:
 
-- `index.html`
-- `style.css`
-
-If you are reading the architecture: ignore these.
-If you are editing the website: these are the entry points.
+- compositional primitives  
+- Persistent Existence Frame (PEF)  
+- conceptual state structures (Roles, Domains, Spans)  
+- the Aurora reasoning cycle  
 
 ---
+
+## Contact
+
+Margaret Stokes  
+📧 margaret.stokes.ai@gmail.com  
+(Research correspondence only)
