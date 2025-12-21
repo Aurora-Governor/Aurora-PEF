@@ -1,10 +1,13 @@
 # PEF Reconstruction Demo
 
-This repository contains a **minimal demonstration of constraint-first reasoning**.
+This demo illustrates epistemic state persistence, not output entitlement.
+Unlike the guided gate demo, it does not decide when to answer; it preserves what exists when an answer is not yet licensed.
+
+This repository contains a **minimal demonstration of constraint-first epistemic processing**.
 
 The core idea is simple:
 
-> **Some questions must not be answered until their preconditions are satisfied.**
+> **Some questions must not be answered until their preconditions are satisfied — and some remain unanswered indefinitely.**
 
 The demo shows how enforcing explicit constraints on *referent resolution* and *information sufficiency* produces behavior that current large language models do not reliably exhibit.
 
