@@ -33,11 +33,14 @@ All folders listed below are located under `demos/`.
 |------|--------|
 | `01_reasoning_kernel_ambiguity/` | Minimal ambiguity witnesses and failure cases |
 | `02_interactive_clarification_cli/` | Earlier local clarification experiments (superseded) |
-| `aurora_trace_player_demo/` | Trace-based inspection of gated decisions |
-| `operator-lattice/` | Structural primitives and operator relationships |
-| `PEF_minimal_demo/` | Persistent Existence Frame (epistemic state) demo |
+| `03_aurora_trace_player_demo/` | Trace-based inspection of gated decisions |
+| `04_operator-lattice/` | Structural primitives and operator relationships |
+| `05_PEF_minimal_demo/` | Persistent Existence Frame (epistemic state) demo |
+| `epistemic_legitimacy_pronoun_binding/` | Minimal demonstrator of licensed vs unlicensed resolution under ambiguity |
 
 Each folder contains its own README explaining scope and intent.
+
+Some demos isolate a single epistemic failure mode (e.g. ambiguity collapse) to make refusal as a correct outcome directly observable.
 
 ---
 

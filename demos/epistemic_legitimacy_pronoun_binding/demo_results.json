@@ -1,0 +1,297 @@
+[
+  {
+    "seed": 7,
+    "regime": "both",
+    "stream": [
+      "If this keeps going, I'm going to need tea and a legal brief.",
+      "Emma's sister and Lucy's sister both live overseas.",
+      "This is a mess. I'm not even sure what to think anymore.",
+      "I can't believe he said that. Honestly, I'm shaking.",
+      "Random thought: koalas are basically eucalyptus-powered teddy bears.",
+      "Unrelated: someone keeps parking in my spot.",
+      "Anyway\u2014completely different topic\u2014did you see that comet last night?",
+      "No, wait\u2014I'm overreacting. Or am I? (rhetorical; don't answer that.)",
+      "Emma told Lucy that her sister was arriving."
+    ],
+    "evidence_atoms": [
+      "Emma's sister and Lucy's sister both live overseas."
+    ],
+    "supported_bindings": [
+      "Emma's sister",
+      "Lucy's sister"
+    ],
+    "supported_count": 2,
+    "vanilla": {
+      "engine": "VANILLA",
+      "status": "collapsed_best_guess",
+      "resolved_to": "Lucy's sister",
+      "explanation": "When you tell someone something like this, it's usually about them (Lucy). (heuristic=PRAGMATIC_LISTENER)",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        }
+      ],
+      "meta": {
+        "heuristic": "PRAGMATIC_LISTENER",
+        "pressure": 3,
+        "context_available": true,
+        "context_considered": false
+      }
+    },
+    "gate": {
+      "engine": "GATE",
+      "status": "REFUSE_AMBIGUOUS_SUPPORTED",
+      "resolved_to": null,
+      "explanation": "Ambiguity detected. Prior context supports BOTH bindings, so collapse is not licensed. Refusal/clarification is the correct outcome.",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        }
+      ],
+      "meta": {
+        "supported_bindings": [
+          "Emma's sister",
+          "Lucy's sister"
+        ]
+      }
+    },
+    "delta": {
+      "vanilla_collapses": true,
+      "gate_refuses": true,
+      "gate_resolves": false,
+      "vanilla_licensed": false
+    }
+  },
+  {
+    "seed": 11,
+    "regime": "emma",
+    "stream": [
+      "By the way, the council meeting got moved again. Typical.",
+      "Emma's sister moved back from Canada last week.",
+      "I'm trying to be rational but my brain is doing jazz hands.",
+      "Anyway\u2014completely different topic\u2014did you see that comet last night?",
+      "I can't believe he said that. Honestly, I'm shaking.",
+      "Look, ignore all that\u2014back to what we were saying.",
+      "Random thought: koalas are basically eucalyptus-powered teddy bears.",
+      "This is a mess. I'm not even sure what to think anymore.",
+      "Emma told Lucy that her sister was arriving."
+    ],
+    "evidence_atoms": [
+      "Emma's sister moved back from Canada last week."
+    ],
+    "supported_bindings": [
+      "Emma's sister"
+    ],
+    "supported_count": 1,
+    "vanilla": {
+      "engine": "VANILLA",
+      "status": "collapsed_best_guess",
+      "resolved_to": "Emma's sister",
+      "explanation": "When reporting news, the speaker often refers to their own circle (Emma). (heuristic=PRAGMATIC_SPEAKER)",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        }
+      ],
+      "meta": {
+        "heuristic": "PRAGMATIC_SPEAKER",
+        "pressure": 2,
+        "context_available": true,
+        "context_considered": false
+      }
+    },
+    "gate": {
+      "engine": "GATE",
+      "status": "RESOLVED_BY_CONTEXT",
+      "resolved_to": "Emma's sister",
+      "explanation": "Ambiguity detected. Prior context uniquely supports Emma's sister, so collapse is licensed.",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        }
+      ],
+      "meta": {
+        "supported_bindings": [
+          "Emma's sister"
+        ]
+      }
+    },
+    "delta": {
+      "vanilla_collapses": true,
+      "gate_refuses": false,
+      "gate_resolves": true,
+      "vanilla_licensed": true
+    }
+  },
+  {
+    "seed": 13,
+    "regime": "lucy",
+    "stream": [
+      "This is a mess. I'm not even sure what to think anymore.",
+      "Lucy's sister is flying in for the holidays.",
+      "Anyway\u2014completely different topic\u2014did you see that comet last night?",
+      "Unrelated: someone keeps parking in my spot.",
+      "If this keeps going, I'm going to need tea and a legal brief.",
+      "I'm trying to be rational but my brain is doing jazz hands.",
+      "I can't believe he said that. Honestly, I'm shaking.",
+      "Look, ignore all that\u2014back to what we were saying.",
+      "Emma told Lucy that her sister was arriving."
+    ],
+    "evidence_atoms": [
+      "Lucy's sister is flying in for the holidays."
+    ],
+    "supported_bindings": [
+      "Lucy's sister"
+    ],
+    "supported_count": 1,
+    "vanilla": {
+      "engine": "VANILLA",
+      "status": "collapsed_best_guess",
+      "resolved_to": "Lucy's sister",
+      "explanation": "When you tell someone something like this, it's usually about them (Lucy). (heuristic=PRAGMATIC_LISTENER)",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        }
+      ],
+      "meta": {
+        "heuristic": "PRAGMATIC_LISTENER",
+        "pressure": 2,
+        "context_available": true,
+        "context_considered": true
+      }
+    },
+    "gate": {
+      "engine": "GATE",
+      "status": "RESOLVED_BY_CONTEXT",
+      "resolved_to": "Lucy's sister",
+      "explanation": "Ambiguity detected. Prior context uniquely supports Lucy's sister, so collapse is licensed.",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": true
+        }
+      ],
+      "meta": {
+        "supported_bindings": [
+          "Lucy's sister"
+        ]
+      }
+    },
+    "delta": {
+      "vanilla_collapses": true,
+      "gate_refuses": false,
+      "gate_resolves": true,
+      "vanilla_licensed": true
+    }
+  },
+  {
+    "seed": 17,
+    "regime": "none",
+    "stream": [
+      "Unrelated: someone keeps parking in my spot.",
+      "This is a mess. I'm not even sure what to think anymore.",
+      "Anyway\u2014completely different topic\u2014did you see that comet last night?",
+      "Look, ignore all that\u2014back to what we were saying.",
+      "I can't believe he said that. Honestly, I'm shaking.",
+      "No, wait\u2014I'm overreacting. Or am I? (rhetorical; don't answer that.)",
+      "By the way, the council meeting got moved again. Typical.",
+      "Emma told Lucy that her sister was arriving."
+    ],
+    "evidence_atoms": [],
+    "supported_bindings": [],
+    "supported_count": 0,
+    "vanilla": {
+      "engine": "VANILLA",
+      "status": "collapsed_best_guess",
+      "resolved_to": "Emma's sister",
+      "explanation": "When reporting news, the speaker often refers to their own circle (Emma). (heuristic=PRAGMATIC_SPEAKER)",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        }
+      ],
+      "meta": {
+        "heuristic": "PRAGMATIC_SPEAKER",
+        "pressure": 3,
+        "context_available": false,
+        "context_considered": false
+      }
+    },
+    "gate": {
+      "engine": "GATE",
+      "status": "REFUSE_AMBIGUOUS_UNCONSTRAINED",
+      "resolved_to": null,
+      "explanation": "Ambiguity detected ('her sister' can bind to Emma or Lucy). No prior context supports either binding, so a single conclusion is not licensed.",
+      "interpretations": [
+        {
+          "binding": "Emma's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        },
+        {
+          "binding": "Lucy's sister",
+          "structurally_valid": true,
+          "context_supported": false
+        }
+      ],
+      "meta": {
+        "supported_bindings": []
+      }
+    },
+    "delta": {
+      "vanilla_collapses": true,
+      "gate_refuses": true,
+      "gate_resolves": false,
+      "vanilla_licensed": false
+    }
+  }
+]
