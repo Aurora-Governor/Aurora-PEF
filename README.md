@@ -3,7 +3,7 @@ the inability to maintain epistemic legitimacy under pressure.
 
 The goal is not better answers, but structurally justified conclusions — including refusal — under audit.
 
-### New readers: Start with EPISTEMIC_LEGITIMACY.md for the governing frame of this work.
+### New readers: Start with [EPISTEMIC_LEGITIMACY.md](EPISTEMIC_LEGITIMACY.md) for the governing frame of this work.
 
 # Aurora + PEF  
 ### Explicit compositional reasoning on a non-temporal substrate
