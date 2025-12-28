@@ -65,3 +65,15 @@ results.json
 src/demo/results.json
 src/demo/archive/results.json
 
+*.code-workspace
+
+# Working notes and local test setup (not for public repo)
+external/ollama_tests/
+WORKSPACE_SUMMARY.md
+DEPENDENCY_ANALYSIS.md
+*_LOCAL.md
+*_NOTES.md
+*_TEST_SETUP.*
+local_*.txt
+local_*.md
+test_setup.*
