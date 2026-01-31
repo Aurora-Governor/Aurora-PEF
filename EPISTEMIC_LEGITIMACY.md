@@ -72,8 +72,6 @@ Aurora evaluates whether conclusions are legitimate *before* they are expressed.
 
 ### What Exists Today
 
-What Exists Today
-
 - A formal architecture specifying admissibility, collapse, and refusal
 - An implemented admissibility engine that maintains parallel interpretations and collapses only under eliminating constraints
 - Empirical tests revealing consistent failure modes across multiple transformer systems
