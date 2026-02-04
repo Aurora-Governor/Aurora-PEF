@@ -35,7 +35,7 @@ All folders listed below are located under `demos/`.
 | `02_interactive_clarification_cli/` | Earlier local clarification experiments (superseded) |
 | `03_aurora_trace_player_demo/` | Trace-based inspection of gated decisions |
 | `04_operator-lattice/` | Structural primitives and operator relationships |
-| `05_PEF_minimal_demo/` | Persistent Existence Frame (epistemic state) demo |
+| `05_PEF_state_semantics_demo/` | Persistent Existence Frame (epistemic state) demo |
 | `epistemic_legitimacy_pronoun_binding/` | Minimal demonstrator of licensed vs unlicensed resolution under ambiguity |
 
 Each folder contains its own README explaining scope and intent.

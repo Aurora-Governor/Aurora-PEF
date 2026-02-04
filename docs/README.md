@@ -70,7 +70,7 @@ Concise, reviewer-oriented summaries of the work.
 Raw transcripts and captured outputs used as empirical evidence in the failure taxonomy
 and comparative analysis.
 
-👉 [Evidence/Transcripts/](Evidence/Transcripts/)
+👉 [Evidence/Model_Transcripts/](Evidence/Model_Transcripts/)
 
 ---
 
