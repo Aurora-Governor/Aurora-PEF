@@ -129,13 +129,12 @@ Protected under Australian provisional patents covering:
 
 This technology is **available for licensing and partnership**.
 
-For commercial use, integration, or investment discussions:  
-📧 margaret.stokes.ai@gmail.com  
+For commercial use, integration, or investment discussions:
+📧 margaret.stokes.ai@gmail.com
 Subject line: "Aurora Commercial Inquiry"
 
 Patent portfolio and business terms available on request.
 
 ## Contact
 
-Margaret Stokes  
-📧 margaret.stokes.ai@gmail.com  
+Margaret Stokes — margaret.stokes.ai@gmail.com
